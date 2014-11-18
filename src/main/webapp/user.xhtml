@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html 	xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:f="http://java.sun.com/jsf/core"
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:p="http://primefaces.org/ui">
+	
+	<h:head>
+		<title>User</title>
+	</h:head>
+	<body>
+		<h:form id="userRegistrationForm">
+			<p:panel header="Registration Form" style="width: 500px;">
+				<p:messages />
+				<h:panelGrid columns="2">
+					<p:outputLabel value="Name" />
+					<p:inputText id="name" value="#{userController.user.name}" label="Name" onchange="validateName();" />
+					<p:outputLabel value="Mail" />
+					<p:inputText id="mail" value="#{userController.user.mail}" label="Mail" />
+					<p:commandButton action="#{userController.saveUser}" value="Register" />
+				</h:panelGrid>
+			</p:panel>
+		</h:form>
+	</body>
+	<script>
+		function validateName() {
+			// We have changed separator char in web.xml to slash instead colon.
+			console.log($("#userRegistrationForm-name").val());
+		}
+	</script>
+</html>
